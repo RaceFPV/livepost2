@@ -6,5 +6,5 @@
 meteor-platform
 autopublish
 insecure
-bootstrap
-
+less
+nemo64:bootstrap

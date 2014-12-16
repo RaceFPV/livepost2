@@ -1,14 +1,25 @@
 <head>
-  <title>livepost2</title>
+  <title>Livepost 2.0</title>
 </head>
 
 <body>
-  <h1>Welcome to Meteor!</h1>
+  {{> header}}
 
   {{> hello}}
 </body>
 
+<template name="header">
+  <div class="row">
+    <div class="col-xs-6 col-xs-offset-3" align="center">
+      <h1>Livepost 2.01</h1>
+    </div>
+  </div>
+</template>
 <template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
+  <div class="row">
+    <div class="col-xs-6 col-xs-offset-3" align="center">
+      <button>Click Me</button>
+      <p>You've pressed the button {{counter}} times.</p>
+    </div>
+  </div>
 </template>
