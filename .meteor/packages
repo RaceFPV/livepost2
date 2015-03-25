@@ -11,6 +11,6 @@ nemo64:bootstrap
 accounts-ui
 accounts-github
 mquandalle:bower
-mrt:three.js
 iron:router
 multiply:iron-router-progress
+infinitedg:three

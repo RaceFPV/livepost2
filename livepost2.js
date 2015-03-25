@@ -1,5 +1,4 @@
 if (Meteor.isClient) {
-  
 }
 
 if (Meteor.isServer) {
@@ -26,3 +25,4 @@ Router.map( function () {
   path: '/messages/:_id'
 });
 });
+
