@@ -5,21 +5,23 @@
 <body>
   {{> header}}
 
-  {{> hello}}
+  {{> messages}}
+  {{> input}}
 </body>
 
 <template name="header">
   <div class="row">
     <div class="col-xs-6 col-xs-offset-3" align="center">
       <h1>Livepost 2.01</h1>
+      {{> loginButtons align="center"}}<br>
     </div>
   </div>
 </template>
-<template name="hello">
-  <div class="row">
-    <div class="col-xs-6 col-xs-offset-3" align="center">
-      <button>Click Me</button>
-      <p>You've pressed the button {{counter}} times.</p>
-    </div>
-  </div>
+<template name="messages">
+  {{#each messages}}
+    <strong>{{name}}:</strong> {{message}}<br>
+  {{/each}}
+</template>
+<template name="input">
+  <p>Message: <input type="text" id="message"></p>
 </template>
