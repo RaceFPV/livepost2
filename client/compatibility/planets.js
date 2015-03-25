@@ -53,7 +53,7 @@ THREEx.Planets.createEarth	= function(){
 	return mesh	
 }
 
-THREEx.Planets.createEarthButt	= function(){
+THREEx.Planets.createEarthClouds	= function(){
 	// create destination canvas
 	var canvasResult	= document.createElement('canvas')
 	canvasResult.width	= 1024

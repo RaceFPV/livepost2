@@ -75,13 +75,28 @@ var renderer	= new THREE.WebGLRenderer({
 	mesh.scale.multiplyScalar(1.15);
 	containerEarth.add( mesh );
 	// new THREEx.addAtmosphereMaterial2DatGui(material, datGUI)
-	var earthButt	= THREEx.Planets.createEarthButt()
-	earthButt.receiveShadow	= true
-	earthButt.castShadow	= true
-	containerEarth.add(earthButt)
+	var earthClouds	= THREEx.Planets.createEarthClouds()
+	earthClouds.receiveShadow	= true
+	earthClouds.castShadow	= true
+	containerEarth.add(earthClouds)
 	onRenderFcts.push(function(delta, now){
-		earthButt.rotation.y += 1/8 * delta;		
+		earthClouds.rotation.y += 1/8 * delta;		
 	})
+  //////////////////////////////////////////////////////////////////////////////////
+  //    Add the ISS                                                               //
+  //////////////////////////////////////////////////////////////////////////////////
+	var containerEarth2	= new THREE.Object3D()
+	containerEarth2.rotateZ(35.4 * Math.PI/180)
+	containerEarth2.position.z	= 0
+	scene.add(containerEarth2)
+  var geometry   = new THREE.SphereGeometry(0.5, 32, 32)
+  var material  = new THREE.MeshPhongMaterial()
+  var issMesh = new THREE.Mesh(geometry, material)
+	issMesh.position.set(0.32,0.32,0.32)
+	issMesh.scale.multiplyScalar(1/25)
+	issMesh.receiveShadow	= true
+	issMesh.castShadow	= true
+	containerEarth2.add(issMesh)
 	//////////////////////////////////////////////////////////////////////////////////
 	//		Camera Controls							//
 	//////////////////////////////////////////////////////////////////////////////////
@@ -91,8 +106,8 @@ var renderer	= new THREE.WebGLRenderer({
 		mouse.y	= (event.clientY / window.innerHeight) - 0.5
 	}, false)
 	onRenderFcts.push(function(delta, now){
-		camera.position.x += (mouse.x*5 - camera.position.x) * (delta*3)
-		camera.position.y += (mouse.y*5 - camera.position.y) * (delta*3)
+		camera.position.x += (mouse.x*3 - camera.position.x) * (delta*3)
+		camera.position.y += (mouse.y*3 - camera.position.y) * (delta*3)
 		camera.lookAt( scene.position )
 	})
 	//////////////////////////////////////////////////////////////////////////////////
