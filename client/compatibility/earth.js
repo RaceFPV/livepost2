@@ -59,8 +59,8 @@ var renderer	= new THREE.WebGLRenderer({
 	var geometry	= new THREE.SphereGeometry(0.5, 32, 32)
 	var material	= THREEx.createAtmosphereMaterial()
 	material.uniforms.glowColor.value.set(0x00b3ff)
-	material.uniforms.coeficient.value	= 0.8
-	material.uniforms.power.value		= 2.0
+	material.uniforms.coeficient.value	= 0.5
+	material.uniforms.power.value		= 3.8
 	var mesh	= new THREE.Mesh(geometry, material );
 	mesh.scale.multiplyScalar(1.01);
 	containerEarth.add( mesh );
@@ -70,7 +70,7 @@ var renderer	= new THREE.WebGLRenderer({
 	material.side	= THREE.BackSide
 	material.uniforms.glowColor.value.set(0x00b3ff)
 	material.uniforms.coeficient.value	= 0.5
-	material.uniforms.power.value		= 4.0
+	material.uniforms.power.value		= 13.0
 	var mesh	= new THREE.Mesh(geometry, material );
 	mesh.scale.multiplyScalar(1.15);
 	containerEarth.add( mesh );
@@ -89,14 +89,19 @@ var renderer	= new THREE.WebGLRenderer({
 	containerEarth2.rotateZ(35.4 * Math.PI/180)
 	containerEarth2.position.z	= 0
 	scene.add(containerEarth2)
-  var geometry   = new THREE.SphereGeometry(0.5, 32, 32)
-  var material  = new THREE.MeshPhongMaterial()
-  var issMesh = new THREE.Mesh(geometry, material)
-	issMesh.position.set(0.32,0.32,0.32)
-	issMesh.scale.multiplyScalar(1/25)
-	issMesh.receiveShadow	= true
-	issMesh.castShadow	= true
-	containerEarth2.add(issMesh)
+  //var geometry   = new THREE.SphereGeometry(0.5, 32, 32)
+ // var material  = new THREE.MeshPhongMaterial()
+  //material.map   = THREE.ImageUtils.loadTexture('images/galaxy_starfield.png')
+  //material.side  = THREE.BackSide
+  //var issMesh = new THREE.Mesh(geometry, material)
+  var issTexture = THREE.ImageUtils.loadTexture( 'images/iss.png' );
+	var issMaterial = new THREE.SpriteMaterial( { map: issTexture, useScreenCoordinates: true} );
+	var issSprite = new THREE.Sprite( issMaterial );
+	issSprite.position.set(0.38,0.38,0.38)
+	issSprite.scale.set( 0.12, 0.12, 1.0 );
+	issSprite.receiveShadow	= true
+	issSprite.castShadow	= true
+	containerEarth2.add(issSprite)
 	//////////////////////////////////////////////////////////////////////////////////
 	//		Camera Controls							//
 	//////////////////////////////////////////////////////////////////////////////////
