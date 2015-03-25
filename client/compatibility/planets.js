@@ -96,9 +96,9 @@ THREEx.Planets.createEarthButt	= function(){
 			contextResult.putImageData(dataResult,0,0)	
 			material.map.needsUpdate = true;
 		})
-		imageTrans.src	= THREEx.Planets.baseURL+'images/earthbuttmaptrans.jpg';
+		imageTrans.src	= THREEx.Planets.baseURL+'images/earthcloudmaptrans.jpg';
 	}, false);
-	imageMap.src	= THREEx.Planets.baseURL+'images/earthbuttmap.jpg';
+	imageMap.src	= THREEx.Planets.baseURL+'images/earthcloudmap.jpg';
 
 	var geometry	= new THREE.SphereGeometry(0.51, 32, 32)
 	var material	= new THREE.MeshPhongMaterial({
