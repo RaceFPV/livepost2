@@ -2,14 +2,14 @@ $( document ).ready(function() {
 var renderer	= new THREE.WebGLRenderer({
 		antialias	: true
 	});
-	renderer.setSize( window.innerWidth, window.innerHeight );
+	renderer.setSize( window.innerWidth - 20, window.innerHeight  - 50);
 	document.body.appendChild( renderer.domElement );
 	renderer.shadowMapEnabled	= true
 	
 	var onRenderFcts= [];
 	var scene	= new THREE.Scene();
 	var camera	= new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.01, 100 );
-	camera.position.z = 1;
+	camera.position.z = 3;
 	var light	= new THREE.AmbientLight( 0x222222 )
 	scene.add( light )
 	var light	= new THREE.DirectionalLight( 0xffffff, 1 )
@@ -111,8 +111,8 @@ var renderer	= new THREE.WebGLRenderer({
 		mouse.y	= (event.clientY / window.innerHeight) - 0.5
 	}, false)
 	onRenderFcts.push(function(delta, now){
-		camera.position.x += (mouse.x*3 - camera.position.x) * (delta*3)
-		camera.position.y += (mouse.y*3 - camera.position.y) * (delta*3)
+		camera.position.x += (mouse.x*2 - camera.position.x) * (delta*2)
+		camera.position.y += (mouse.y*2 - camera.position.y) * (delta*2)
 		camera.lookAt( scene.position )
 	})
 	//////////////////////////////////////////////////////////////////////////////////
