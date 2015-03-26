@@ -9,7 +9,7 @@ var renderer	= new THREE.WebGLRenderer({
 	
 	var onRenderFcts= [];
 	var scene	= new THREE.Scene();
-	var camera	= new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.01, 100 );
+	var camera	= new THREE.PerspectiveCamera(45, earthid.offsetWidth /  earthid.offsetHeight );
 	camera.position.z = 1.1;
 	var light	= new THREE.AmbientLight( 0x222222 )
 	scene.add( light )
@@ -108,9 +108,9 @@ var renderer	= new THREE.WebGLRenderer({
 	//		Camera Controls							//
 	//////////////////////////////////////////////////////////////////////////////////
 	var mouse	= {x : 0, y : 0}
-	document.addEventListener('mousemove', function(event){
-		mouse.x	= (event.clientX / window.innerWidth ) - 0.5
-		mouse.y	= (event.clientY / window.innerHeight) - 0.5
+	earthid.addEventListener('mousemove', function(event){
+		mouse.x	= (event.clientX /  earthid.offsetWidth ) - 0.5
+		mouse.y	= (event.clientY /  earthid.offsetHeight) - 0.5
 	}, false)
 	onRenderFcts.push(function(delta, now){
 		camera.position.x += (mouse.x*4 - camera.position.x) * (delta*3)
