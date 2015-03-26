@@ -1,3 +1,10 @@
 <template name="earth">
   <div id="earth"></div>
+  {{> isslocation}}
+</template>
+
+<template name="isslocation">
+  {{#each isslocations}}
+    <strong>{{latitude}}</strong>{{longitude}}<br>
+  {{/each}}
 </template>

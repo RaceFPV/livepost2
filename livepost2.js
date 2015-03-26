@@ -1,10 +1,20 @@
 if (Meteor.isClient) {
 }
 
+
 if (Meteor.isServer) {
-  Meteor.startup(function () {
-    // code to run on server at startup
-  });
+    Meteor.methods({
+        checkIss: function () {
+            this.unblock();
+            return Meteor.http.call("GET", "http://api.open-notify.org/iss-now.json");
+        }
+    });
+  Meteor.setInterval(function() {
+      Meteor.call("checkIss", function(error, results) {
+        var result = JSON.parse(results.content)
+        ISSLocation.insert({latitude: result.iss_position.latitude, longitude: result.iss_position.longitude, time: Date.now()});
+    });
+  }, 3000);
 }
 
 Router.map( function () {
