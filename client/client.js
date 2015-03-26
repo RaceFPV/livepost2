@@ -29,6 +29,6 @@ Template.input.events = {
   }
 }
 
-Template.earth.onRendered = function() {
-  document.getElementById('earth').
+Template.earth.rendered = function() {
+	showearth();
 }

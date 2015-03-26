@@ -1,8 +1,10 @@
+function showearth() {
 var renderer	= new THREE.WebGLRenderer({
 		antialias	: true
 	});
-	renderer.setSize( window.innerWidth - 20, window.innerHeight  - 50);
-	document.getElementById('earth').appendChild( renderer.domElement );
+  var earthid = document.getElementById('earth')
+	renderer.setSize( earthid.offsetWidth, earthid.offsetHeight);
+	earthid.appendChild( renderer.domElement );
 	renderer.shadowMapEnabled	= true
 	
 	var onRenderFcts= [];
@@ -138,3 +140,4 @@ var renderer	= new THREE.WebGLRenderer({
 			onRenderFct(deltaMsec/1000, nowMsec/1000)
 		})
 	})
+	};
