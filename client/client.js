@@ -30,5 +30,5 @@ Template.input.events = {
 }
 
 Template.earth.onRendered = function() {
-  $('head').append('<script type="text/javascript" src="earth.js"></script>');
+  document.getElementById('earth').
 }

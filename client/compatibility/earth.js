@@ -1,15 +1,14 @@
-$( document ).ready(function() {
 var renderer	= new THREE.WebGLRenderer({
 		antialias	: true
 	});
 	renderer.setSize( window.innerWidth - 20, window.innerHeight  - 50);
-	document.body.appendChild( renderer.domElement );
+	document.getElementById('earth').appendChild( renderer.domElement );
 	renderer.shadowMapEnabled	= true
 	
 	var onRenderFcts= [];
 	var scene	= new THREE.Scene();
 	var camera	= new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.01, 100 );
-	camera.position.z = 1.5;
+	camera.position.z = 1.1;
 	var light	= new THREE.AmbientLight( 0x222222 )
 	scene.add( light )
 	var light	= new THREE.DirectionalLight( 0xffffff, 1 )
@@ -139,4 +138,3 @@ var renderer	= new THREE.WebGLRenderer({
 			onRenderFct(deltaMsec/1000, nowMsec/1000)
 		})
 	})
-	});
